@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/countdown.css">
+		<title>Countdown Timer Javascript</title>
+	</head>
+	<body>
+		<section id="main">
+			<div class="countdown" id="countdown">
+				<h1>Countdown Timer Javascript</h1>
+				<div>
+					<span class="days">0</span>
+					Days
+				</div>
+				<div>
+					<span class="hours">0</span>
+					Hours
+				</div>
+				<div>
+					<span class="minutes">0</span>
+					Minutes
+				</div>
+				<div>
+					<span class="seconds">0</span>
+					Seconds
+				</div>
+				<div class="input-date">
+					<input type="date" class="date" name="" id="date">
+					<button class="btnStart" onclick="startCountdown()">Start</button>
+				</div>
+			</div>
+		</section>
+	</body>
+	
+	<script>
+		function getTimeRemaining(endTime) {
+			var total = Date.parse(endTime) - Date.parse(new Date());
+			var seconds = Math.floor( (total/1000) % 60 );
+  		var minutes = Math.floor( (total/1000/60) % 60 );
+  		var hours = Math.floor( (total/(1000*60*60)) % 24 );
+			var days = Math.floor( total/(1000*60*60*24) );
+
+			return {
+				total, 
+				days,
+				hours,
+				minutes,
+				seconds
+			};
+		}
+
+		function initializeClock(id, endTime) {
+			var clock = document.getElementById(id);
+			var daysSpan = clock.querySelector('.days');
+			var hoursSpan = clock.querySelector('.hours');
+			var minutesSpan = clock.querySelector('.minutes');
+			var secondsSpan = clock.querySelector('.seconds');
+
+			function updateClock() {
+				var timeRemain = getTimeRemaining(endTime);
+    		daysSpan.innerHTML = timeRemain.days;
+    		hoursSpan.innerHTML = ('0' + timeRemain.hours).slice(-2);
+    		minutesSpan.innerHTML = ('0' + timeRemain.minutes).slice(-2);
+				secondsSpan.innerHTML = ('0' + timeRemain.seconds).slice(-2);
+				
+    		if (timeRemain.total <= 0) {
+      		clearInterval(timeInterval);
+				}
+			}
+
+			updateClock();
+			var timeInterval = setInterval(updateClock, 1000);
+		}
+
+		function startCountdown() {
+			var deadline = document.getElementById('date').value;
+			var now = new Date();
+			initializeClock('countdown', deadline);
+		}
+	</script>
+</html>
