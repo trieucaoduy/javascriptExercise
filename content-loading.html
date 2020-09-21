@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Loading Placeholder</title>
+    <link rel="stylesheet" href="css/content-loading.css" />
+  </head>
+
+  <body>
+		<section id="main">
+			<div class="loading" id="loading">
+				<div class="header-loading">
+					<div class="loading-left"></div>
+					<div class="loading-right">
+						<div class="line-1"></div>
+						<div class="line-2"></div>
+						<div class="line-3"></div>
+					</div>
+				</div>
+				<div class="body-loading">
+					<div class="line-1"></div>
+					<div class="line-3"></div>
+					<div class="line-2"></div>
+					<div class="img-loading"></div>
+				</div>
+			</div>
+
+			<div class="content" id="content">
+				<div class="header-content">
+					<div class="content-left">
+						<img src="/image/square.jpg" alt="">
+					</div>
+					<div class="content-right">
+						<h3 class="title">Lorem ipsum dolor sit amet.</h3>
+						<h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+							 Incidunt voluptatibus temporibus ipsum vitae sed numquam.</h5>
+						<h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus?</h5>
+					</div>
+				</div>
+				<div class="body-content">
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, fuga!
+					<img src="/image/img.jpg" alt="">
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, explicabo.
+					
+				</div>
+			</div>
+		</section>
+	</body>
+	<script>
+		setTimeout(function() {
+			document.getElementById('loading').style.display = "none";
+			document.getElementById('content').style.display = "block";
+		}, 1000);
+	</script>
+</html>

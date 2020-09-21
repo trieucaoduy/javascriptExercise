@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#main {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+#main .loading {
+  /* display: none; */
+  width: 80%;
+  background-color: #fff;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+#main .loading .header-loading .loading-left {
+  display: inline-block;
+  background-color: #f1f1f1;
+  width: 100px;
+	height: 100px;
+	position: relative;
+}
+
+#main .loading .header-loading .loading-right {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.line-1 {
+  background-color: #f1f1f1;
+  width: 500px;
+  height: 10px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.line-2 {
+  background-color: #f1f1f1;
+  width: 700px;
+  height: 10px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.line-3 {
+  background-color: #f1f1f1;
+  width: 400px;
+  height: 10px;
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.img-loading {
+  width: 100%;
+  height: 400px;
+	background-color: #f1f1f1;
+	position: relative;
+}
+
+.body-loading {
+  margin: 40px 0;
+}
+
+#main .content {
+  display: none;
+  width: 80%;
+  background-color: #fff;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+#main .content .header-content .content-left {
+  display: inline-block;
+  background-color: #f1f1f1;
+  width: 100px;
+  height: 100px;
+}
+
+#main .content .header-content .content-left img {
+  width: 100%;
+  height: 100%;
+}
+
+#main .content .header-content .content-right {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 20px 0;
+}
+
+#main .content .header-content .content-right h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+#main .content .header-content .content-right h5 {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+#main .content .body-content img {
+  width: 100%;
+  height: 500px;
+}
+
+.line-1::before,
+.line-2::before,
+.line-3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #e8e8e8 50%,
+    transparent 100%
+  );
+  animation: fading 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.img-loading::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #e8e8e8 50%,
+    transparent 100%
+  );
+  animation: fading 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.loading-left::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 35px;
+	background: linear-gradient(
+    to right,
+    transparent 0%,
+    #e8e8e8 50%,
+    transparent 100%
+  );
+  animation: fading 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes fading {
+  from {
+    left: 0px;
+  }
+  to {
+    left: 50%;
+  }
+}
