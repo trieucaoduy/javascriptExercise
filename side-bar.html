@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Sidebar</title>
+    <link rel="stylesheet" href="css/side-bar.css" />
+  </head>
+
+  <body>
+    <section id="main">
+      <div id="side-bar">
+        <a href="#" class="ic-close" onclick="closeSideBar()">&times;</a>
+        <ul>
+          <li><a href="#">Menu item</a></li>
+          <li><a href="#">Menu item</a></li>
+          <li><a href="#">Menu item</a></li>
+          <li><a href="#">Menu item</a></li>
+        </ul>
+      </div>
+      <section id="main-fl">
+				<a href="#" class="ic-open" onclick="openSideBar()">&#9776;</a>
+			</section>
+    </section>
+	</body>
+	
+  <script>
+		function openSideBar() {
+			document.getElementById('side-bar').style.width = "100%";
+		}
+		function closeSideBar() {
+			document.getElementById('side-bar').style.width = "0";
+		}
+	</script>
+</html>
