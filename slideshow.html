@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slideshow Image Javascript</title>
+    <link rel="stylesheet" href="css/slideshow.css" />
+  </head>
+
+  <body>
+    <section id="main">
+      <h1>Slideshow Image Javascript</h1>
+      <div class="img-slide">
+        <img src="/image/slider-1.jpg" class="img fade" alt="Slider 1" />
+        <img src="/image/slider-2.jpg" class="img fade" alt="Slider 2" />
+        <img src="/image/slider-3.jpg" class="img fade" alt="Slider 3" />
+        <a href="#" class="pre" onclick="plusSlides(-1)">&#10094;</a>
+        <a href="#" class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </section>
+  </body>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function showSlides(n) {
+      var i;
+			var slides = document.getElementsByClassName("img");
+			
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex - 1].style.display = "block";
+    }
+  </script>
+</html>
