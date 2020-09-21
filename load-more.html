@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/load-more.css" />
+    <title>Load More Javascript</title>
+  </head>
+  <body>
+    <section id="main-load">
+      <h1>Load More Javascript</h1>
+      <div class="list color">Lorem ipsum dolor sit amet.</div>
+      <div class="list color1">
+        Lorem ipsum dolor sit, amet consectetur adipisicing.
+      </div>
+      <div class="list color2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+      </div>
+      <div class="list color3">Lorem ipsum dolor sit amet.</div>
+      <div class="list hide color4">
+        Lorem ipsum dolor sit, amet consectetur adipisicing.
+      </div>
+      <div class="list hide color5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+      </div>
+      <div class="list hide color6">Lorem ipsum dolor sit amet.</div>
+      <div class="list hide color7">
+        Lorem ipsum dolor sit, amet consectetur adipisicing.
+      </div>
+      <div class="list hide color8">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+			</div>
+			<div class="list hide color9">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+			</div>
+			<div class="list hide color10">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+			</div>
+			<div class="list hide color3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+			</div>
+			<div class="list hide color4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis.
+			</div>
+      </div>
+    </section>
+  </body>
+
+  <script>
+		function isVisible(element) {
+			var elementBox =  element.getBoundingClientRect();
+			var distanceFromTop = -200;
+
+			if(elementBox.top - window.innerHeight < distanceFromTop) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		function scanDocument() {
+			var sectionList = document.querySelectorAll(".hide");
+			sectionList.forEach(function(section) {
+				if(isVisible(section)) {
+					section.classList.remove("hide");
+				}
+				else {
+					section.classList.add("hide");
+				}
+			});
+		}
+
+		document.addEventListener("scroll", scanDocument);
+  </script>
+</html>

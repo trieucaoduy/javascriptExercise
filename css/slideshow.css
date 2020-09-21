@@ -17,7 +17,7 @@ body {
 	font-weight: 400;
 }
 
-#main h1 {
+#main-slide h1 {
 	font-size: 120%;
 	margin: 20px;
 	text-transform: uppercase;
@@ -25,38 +25,39 @@ body {
 	text-align: center;
 }
 
-#main .img-slide {
+#main-slide .img-slide {
 	width: 100%;
 	position: relative;
 	transition: .5s;
 }
 
-#main .img-slide .pre,
-#main .img-slide .next {
+#main-slide .img-slide .pre,
+#main-slide .img-slide .next {
 	color: #fff;
 	font-weight: bold;
 	padding: 15px;
 	transition: .3s;
 	border-radius: 2px;
 	position: absolute;
-	bottom: 0;
+	bottom: 45%;
+	background-color: rgba(0, 0, 0, .1);
 }
 
-#main .img-slide .pre {
+#main-slide .img-slide .pre {
 	margin-left: 345px;
 }
 
-#main .img-slide .next {
+#main-slide .img-slide .next {
 	right: 0;
 	margin-right: 345px;
 }
 
-#main .img-slide .pre:hover,
-#main .img-slide .next:hover {
+#main-slide .img-slide .pre:hover,
+#main-slide .img-slide .next:hover {
 	background-color: rgba(0, 0, 0, .8);
 }
 
-#main .img-slide .img {
+#main-slide .img-slide .img {
 	display: none;
 	position: absolute;
  	width: 50%;
@@ -67,7 +68,6 @@ body {
 	position: relative;
 }
 
-/* Fading animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
