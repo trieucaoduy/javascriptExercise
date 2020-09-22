@@ -4,37 +4,39 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slideshow Image Javascript</title>
-		<link rel="stylesheet" href="css/slideshow.css" />
-		<link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/slideshow2.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
   </head>
 
   <body>
-    <section id="main-slide">
-      <div id="side-bar">
-        <a href="#" class="ic-close" onclick="closeSideBar()">&times;</a>
-        <ul>
-					<li><a href="./index.html">Home</a></li>
-          <li><a href="./countdown.html">Countdown</a></li>
-          <li><a href="./slideshow.html">Slideshow Image</a></li>
-          <li>
-            <a href="./content-loading.html">Content Loading Placeholder</a>
-          </li>
-          <li><a href="./load-more.html">Load More</a></li>
-        </ul>
-      </div>
-      <a href="#" class="ic-open" onclick="openSideBar()">&#9776;</a>
+    <div id="side-bar">
+      <a href="#" class="ic-close" onclick="closeSideBar()">&times;</a>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./countdown.html">Countdown</a></li>
+        <li><a href="./slideshow.html">Slideshow Image</a></li>
+        <li>
+          <a href="./content-loading.html">Content Loading Placeholder</a>
+        </li>
+        <li><a href="./load-more.html">Load More</a></li>
+      </ul>
+    </div>
+    <a href="#" class="ic-open" onclick="openSideBar()">&#9776;</a>
+		<h1>Slideshow Image Javascript</h1>
+    <div class="carousel-container">
 
-      <h1>Slideshow Image Javascript</h1>
-      <div class="img-slide">
-        <img src="./image/slider-1.jpg" class="img fade" alt="Slider 1" />
-        <img src="./image/slider-2.jpg" class="img fade" alt="Slider 2" />
-        <img src="./image/slider-3.jpg" class="img fade" alt="Slider 3" />
-        <a href="#" class="pre" onclick="plusSlides(-1)">&#10094;</a>
-        <a href="#" class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div class="carousel-slide">
+        <img src="./image/slider-3.jpg" id="lastClone" alt="" />
+        <img src="./image/slider-1.jpg" alt="" />
+        <img src="./image/slider-2.jpg" alt="" />
+        <img src="./image/slider-3.jpg" alt="" />
+        <img src="./image/slider-1.jpg" id="firstClone" alt="" />
       </div>
-    </section>
+    </div>
+
+    <a href="#" class="pre">&#10094;</a>
+    <a href="#" class="next">&#10095;</a>
   </body>
-
   <script>
     function openSideBar() {
       document.getElementById("side-bar").style.width = "40%";
@@ -44,27 +46,43 @@
       document.getElementById("side-bar").style.width = "0";
     }
 
-    var slideIndex = 1;
-    showSlides(slideIndex);
+    var carouselSlide = document.querySelector(".carousel-slide");
+    var carouselImage = document.querySelectorAll(".carousel-slide img");
 
-    function plusSlides(n) {
-      showSlides((slideIndex += n));
-    }
+    var btnPre = document.querySelector(".pre");
+    var btnNext = document.querySelector(".next");
 
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("img");
+    var counter = 1;
+    const size = carouselImage[0].clientWidth;
 
-      if (n > slides.length) {
-        slideIndex = 1;
+    carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
+
+    btnNext.addEventListener("click", () => {
+      if (counter >= carouselImage.length - 1) return;
+      carouselSlide.style.transition = "transform 0.4s ease-in-out";
+      counter++;
+      carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
+    });
+
+    btnPre.addEventListener("click", () => {
+      if (counter <= 0) return;
+      carouselSlide.style.transition = "transform 0.4s ease-in-out";
+      counter--;
+      carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
+    });
+
+    carouselSlide.addEventListener("transitioned", () => {
+      if (carouselImage[counter].id === "lastClone") {
+        carouselSlide.style.transition = "none";
+        counter = carouselImage.length - 2;
+        carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
       }
-      if (n < 1) {
-        slideIndex = slides.length;
+
+      if (carouselImage[counter].id === "firstClone") {
+        carouselSlide.style.transition = "none";
+        counter = carouselImage.length - counter;
+        carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
       }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
-    }
+    });
   </script>
 </html>
