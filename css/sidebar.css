@@ -21,6 +21,20 @@ body {
 	height: 100vh;
 }
 
+#main-fl h1 {
+	text-align: center;
+	margin: 30px;
+	font-size: 120%;
+}
+
+#main-fl img {
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	display: block;
+	margin: 50px auto;
+}
+
 #side-bar {
 	position: fixed;
   width: 0;
