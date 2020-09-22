@@ -1,83 +1,104 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="/css/countdown.css">
-		<title>Countdown Timer Javascript</title>
-	</head>
-	<body>
-		<section id="countdown-main">
-			<div class="countdown" id="countdown">
-				<h1>Countdown Timer Javascript</h1>
-				<div>
-					<span class="days">0</span>
-					Days
-				</div>
-				<div>
-					<span class="hours">0</span>
-					Hours
-				</div>
-				<div>
-					<span class="minutes">0</span>
-					Minutes
-				</div>
-				<div>
-					<span class="seconds">0</span>
-					Seconds
-				</div>
-				<div class="input-date">
-					<input type="date" class="date" name="" id="date">
-					<button class="btnStart" onclick="startCountdown()">Start</button>
-				</div>
-			</div>
-		</section>
-	</body>
-	
-	<script>
-		function getTimeRemaining(endTime) {
-			var total = Date.parse(endTime) - Date.parse(new Date());
-			var seconds = Math.floor( (total/1000) % 60 );
-  		var minutes = Math.floor( (total/1000/60) % 60 );
-  		var hours = Math.floor( (total/(1000*60*60)) % 24 );
-			var days = Math.floor( total/(1000*60*60*24) );
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/countdown.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <title>Countdown Timer Javascript</title>
+  </head>
+  <body>
+    <section id="countdown-main">
+      <div id="side-bar">
+        <a href="#" class="ic-close" onclick="closeSideBar()">&times;</a>
+        <ul>
+          <li><a href="/countdown.html">Countdown</a></li>
+          <li><a href="/slideshow.html">Slideshow Image</a></li>
+          <li>
+            <a href="/content-loading.html">Content Loading Placeholder</a>
+          </li>
+          <li><a href="/load-more.html">Load More</a></li>
+        </ul>
+      </div>
+      <a href="#" class="ic-open" onclick="openSideBar()">&#9776;</a>
+      <div class="countdown" id="countdown">
+        <h1>Countdown Timer Javascript</h1>
+        <div>
+          <span class="days">0</span>
+          Days
+        </div>
+        <div>
+          <span class="hours">0</span>
+          Hours
+        </div>
+        <div>
+          <span class="minutes">0</span>
+          Minutes
+        </div>
+        <div>
+          <span class="seconds">0</span>
+          Seconds
+        </div>
+        <div class="input-date">
+          <input type="date" class="date" name="" id="date" />
+          <button class="btnStart" onclick="startCountdown()">Start</button>
+        </div>
+      </div>
+    </section>
+  </body>
 
-			return {
-				total, 
-				days,
-				hours,
-				minutes,
-				seconds
-			};
-		}
+  <script>
+    function openSideBar() {
+      document.getElementById("side-bar").style.width = "40%";
+    }
+		
+    function closeSideBar() {
+      document.getElementById("side-bar").style.width = "0";
+    }
 
-		function initializeClock(id, endTime) {
-			var clock = document.getElementById(id);
-			var daysSpan = clock.querySelector('.days');
-			var hoursSpan = clock.querySelector('.hours');
-			var minutesSpan = clock.querySelector('.minutes');
-			var secondsSpan = clock.querySelector('.seconds');
+    function getTimeRemaining(endTime) {
+      var total = Date.parse(endTime) - Date.parse(new Date());
+      var seconds = Math.floor((total / 1000) % 60);
+      var minutes = Math.floor((total / 1000 / 60) % 60);
+      var hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+      var days = Math.floor(total / (1000 * 60 * 60 * 24));
 
-			function updateClock() {
-				var timeRemain = getTimeRemaining(endTime);
-    		daysSpan.innerHTML = timeRemain.days;
-    		hoursSpan.innerHTML = ('0' + timeRemain.hours).slice(-2);
-    		minutesSpan.innerHTML = ('0' + timeRemain.minutes).slice(-2);
-				secondsSpan.innerHTML = ('0' + timeRemain.seconds).slice(-2);
-				
-    		if (timeRemain.total <= 0) {
-      		clearInterval(timeInterval);
-				}
-			}
+      return {
+        total,
+        days,
+        hours,
+        minutes,
+        seconds,
+      };
+    }
 
-			updateClock();
-			var timeInterval = setInterval(updateClock, 1000);
-		}
+    function initializeClock(id, endTime) {
+      var clock = document.getElementById(id);
+      var daysSpan = clock.querySelector(".days");
+      var hoursSpan = clock.querySelector(".hours");
+      var minutesSpan = clock.querySelector(".minutes");
+      var secondsSpan = clock.querySelector(".seconds");
 
-		function startCountdown() {
-			var deadline = document.getElementById('date').value;
-			var now = new Date();
-			initializeClock('countdown', deadline);
-		}
-	</script>
+      function updateClock() {
+        var timeRemain = getTimeRemaining(endTime);
+        daysSpan.innerHTML = timeRemain.days;
+        hoursSpan.innerHTML = ("0" + timeRemain.hours).slice(-2);
+        minutesSpan.innerHTML = ("0" + timeRemain.minutes).slice(-2);
+        secondsSpan.innerHTML = ("0" + timeRemain.seconds).slice(-2);
+
+        if (timeRemain.total <= 0) {
+          clearInterval(timeInterval);
+        }
+      }
+
+      updateClock();
+      var timeInterval = setInterval(updateClock, 1000);
+    }
+
+    function startCountdown() {
+      var deadline = document.getElementById("date").value;
+      var now = new Date();
+      initializeClock("countdown", deadline);
+    }
+  </script>
 </html>

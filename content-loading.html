@@ -5,52 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Loading Placeholder</title>
     <link rel="stylesheet" href="css/content-loading.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
   </head>
 
   <body>
-		<section id="main-loading">
-			<div class="loading" id="loading">
-				<div class="header-loading">
-					<div class="loading-left"></div>
-					<div class="loading-right">
-						<div class="line-1"></div>
-						<div class="line-2"></div>
-						<div class="line-3"></div>
-					</div>
-				</div>
-				<div class="body-loading">
-					<div class="line-1"></div>
-					<div class="line-3"></div>
-					<div class="line-2"></div>
-					<div class="img-loading"></div>
-				</div>
-			</div>
+    <section id="main-loading">
+      <div id="side-bar">
+        <a href="#" class="ic-close" onclick="closeSideBar()">&times;</a>
+        <ul>
+          <li><a href="/countdown.html">Countdown</a></li>
+          <li><a href="/slideshow.html">Slideshow Image</a></li>
+          <li>
+            <a href="/content-loading.html">Content Loading Placeholder</a>
+          </li>
+          <li><a href="/load-more.html">Load More</a></li>
+        </ul>
+      </div>
+      <a href="#" class="ic-open" onclick="openSideBar()">&#9776;</a>
 
-			<div class="content" id="content">
-				<div class="header-content">
-					<div class="content-left">
-						<img src="/image/square.jpg" alt="">
-					</div>
-					<div class="content-right">
-						<h3 class="title">Lorem ipsum dolor sit amet.</h3>
-						<h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-							 Incidunt voluptatibus temporibus ipsum vitae sed numquam.</h5>
-						<h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus?</h5>
-					</div>
-				</div>
-				<div class="body-content">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, fuga!
-					<img src="/image/img.jpg" alt="">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, explicabo.
-					
-				</div>
-			</div>
-		</section>
-	</body>
-	<script>
-		setTimeout(function() {
-			document.getElementById('loading').style.display = "none";
-			document.getElementById('content').style.display = "block";
-		}, 1000);
-	</script>
+      <div class="loading" id="loading">
+        <div class="header-loading">
+          <div class="loading-left"></div>
+          <div class="loading-right">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+          </div>
+        </div>
+        <div class="body-loading">
+          <div class="line-1"></div>
+          <div class="line-3"></div>
+          <div class="line-2"></div>
+          <div class="img-loading"></div>
+        </div>
+      </div>
+
+      <div class="content" id="content">
+        <div class="header-content">
+          <div class="content-left">
+            <img src="/image/square.jpg" alt="" />
+          </div>
+          <div class="content-right">
+            <h3 class="title">Lorem ipsum dolor sit amet.</h3>
+            <h5>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+              voluptatibus temporibus ipsum vitae sed numquam.
+            </h5>
+            <h5>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Necessitatibus?
+            </h5>
+          </div>
+        </div>
+        <div class="body-content">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, fuga!
+          <img src="/image/img.jpg" alt="" />
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum,
+          explicabo.
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    function openSideBar() {
+      document.getElementById("side-bar").style.width = "40%";
+    }
+
+    function closeSideBar() {
+      document.getElementById("side-bar").style.width = "0";
+    }
+		
+    setTimeout(function () {
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    }, 1000);
+  </script>
 </html>
