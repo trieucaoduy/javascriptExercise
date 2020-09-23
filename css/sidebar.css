@@ -4,70 +4,88 @@
   border: 0;
   text-decoration: none;
   list-style-type: none;
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	color: #000;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #000;
 }
 
 body {
   font-size: 1rem;
-	font-weight: 400;
+  font-weight: 400;
+}
+
+.header {
+  background-color: #53adf4;
+  width: 100%;
+  height: 300px;
+  border-bottom-left-radius: 300%;
+  border-bottom-right-radius: 300%;
+  top: 0;
 }
 
 #main {
-	height: 100vh;
+  height: 100vh;
 }
 
 #main-fl h1 {
-	text-align: center;
-	margin: 30px;
-	font-size: 120%;
+  text-align: center;
+  /* margin: 30px; */
+  font-size: 150%;
+  padding: 50px;
+  color: #fff;
 }
 
 #main-fl img {
-	width: 500px;
-	height: 500px;
-	text-align: center;
-	display: block;
+  width: 500px;
+  height: 500px;
+  text-align: center;
+  display: block;
 	margin: 50px auto;
 }
 
 #side-bar {
-	position: fixed;
+  position: fixed;
   width: 0;
   background: #eeb341;
   height: 100%;
-	text-align: right;
-	transition: .5s;
-	top: 0;
-	left: 0;
-	overflow: hidden;
-	z-index: 99999;
+  text-align: right;
+  transition: 0.5s;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 99999;
 }
 
 .ic-close {
-	font-size: 35px;
-	margin: 15px;
-	z-index: 9999;
-	color: #000;
+  font-size: 35px;
+  margin: 15px;
+  z-index: 9999;
+  color: #000;
 }
 
 .ic-open {
   font-size: 30px;
   color: #000;
   margin: 15px;
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 10px;
+  border-radius: 150px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  background: #fff;
 }
 
 #side-bar ul {
   text-align: center;
-	margin: 30px 0;
+  margin: 30px 0;
 }
 
 #side-bar ul li {
@@ -75,12 +93,12 @@ body {
 }
 
 #side-bar ul li:hover a {
-	color:#0652DD;
+  color: #0652dd;
 }
 
 #side-bar ul li a {
-	color: #fff;
-	transition: .5s;
-	font-size: 130%;
-	font-weight: 400;
+  color: #fff;
+  transition: 0.5s;
+  font-size: 130%;
+  font-weight: 400;
 }
