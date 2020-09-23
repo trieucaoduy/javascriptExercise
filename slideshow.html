@@ -22,9 +22,8 @@
       </ul>
     </div>
     <a href="#" class="ic-open" onclick="openSideBar()">&#9776;</a>
-		<h1>Slideshow Image Javascript</h1>
+    <h1>Slideshow Image Javascript</h1>
     <div class="carousel-container">
-
       <div class="carousel-slide">
         <img src="./image/slider-3.jpg" id="lastClone" alt="" />
         <img src="./image/slider-1.jpg" alt="" />
@@ -49,29 +48,29 @@
     var carouselSlide = document.querySelector(".carousel-slide");
     var carouselImage = document.querySelectorAll(".carousel-slide img");
 
-    var btnPre = document.querySelector(".pre");
-    var btnNext = document.querySelector(".next");
+    const btnPre = document.querySelector(".pre");
+    const btnNext = document.querySelector(".next");
 
-    var counter = 1;
+    let counter = 1;
     const size = carouselImage[0].clientWidth;
 
     carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
 
     btnNext.addEventListener("click", () => {
       if (counter >= carouselImage.length - 1) return;
-      carouselSlide.style.transition = "transform 0.4s ease-in-out";
+      carouselSlide.style.transition = "transform 0.6s ease-in-out";
       counter++;
       carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
     });
 
     btnPre.addEventListener("click", () => {
       if (counter <= 0) return;
-      carouselSlide.style.transition = "transform 0.4s ease-in-out";
+      carouselSlide.style.transition = "transform 0.6s ease-in-out";
       counter--;
       carouselSlide.style.transform = "translateX(" + (-size * counter) + "px)";
     });
 
-    carouselSlide.addEventListener("transitioned", () => {
+    carouselSlide.addEventListener("transitionend", () => {
       if (carouselImage[counter].id === "lastClone") {
         carouselSlide.style.transition = "none";
         counter = carouselImage.length - 2;
